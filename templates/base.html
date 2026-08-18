@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page_title }} | Dr Befrits & Co</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Dr Befrits &amp; Co</a>
+    <nav class="tabs">
+      <a href="index.html" class="{{ 'active' if active == 'about' else '' }}">Om mig</a>
+      <a href="treatments.html" class="{{ 'active' if active == 'treatments' else '' }}">Behandlingar</a>
+      <a href="contact.html" class="{{ 'active' if active == 'contact' else '' }}">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    &copy; {{ year }} Dr Befrits &amp; Co
+  </div>
+</footer>
+</body>
+</html>
