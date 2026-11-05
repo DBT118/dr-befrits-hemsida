@@ -4,30 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ page_title }} | Dr Befrits & Co</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v={{ asset_version }}">
 </head>
 <body>
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html">Dr Befrits &amp; Co</a>
-    <nav class="tabs">
-      <a href="index.html" class="{{ 'active' if active == 'about' else '' }}">Om mig</a>
-      <a href="treatments.html" class="{{ 'active' if active == 'treatments' else '' }}">Behandlingar</a>
-      <a href="contact.html" class="{{ 'active' if active == 'contact' else '' }}">Kontakt</a>
-    </nav>
+  <div class="header-inner">
+    <div class="left-group">
+      <a class="brand" href="index.html">Dr Befrits <span class="amp">&amp;</span> Co</a>
+      <nav class="tabs">
+        <a href="index.html" class="{{ 'active' if active == 'about' else '' }}">Om mig</a>
+        <a href="mottagningen.html" class="{{ 'active' if active == 'mottagningen' else '' }}">Mottagningen</a>
+        <a href="treatments.html" class="{{ 'active' if active == 'treatments' else '' }}">Behandling</a>
+      </nav>
+    </div>
+    <a href="contact.html" class="kontakt-btn {{ 'active' if active == 'contact' else '' }}">Kontakt</a>
   </div>
 </header>
 
-<main class="wrap">
+<main>
   {% block content %}{% endblock %}
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    &copy; {{ year }} Dr Befrits &amp; Co
+    &copy; {{ year }} Cecilia Befrits
   </div>
 </footer>
 </body>

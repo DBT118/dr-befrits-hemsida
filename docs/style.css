@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Windsor Pro";
+  src: url("fonts/WindsorProRg.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --bg: #faf7f2;
   --surface: #ffffff;
@@ -14,13 +21,19 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Windsor Pro", serif;
+  font-weight: 400;
   line-height: 1.6;
 }
 
+.amp {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: normal;
+}
+
 h1, h2 {
-  font-family: "Lora", serif;
-  font-weight: 600;
+  font-family: "Windsor Pro", serif;
+  font-weight: 400;
   color: var(--accent-dark);
   margin-top: 0;
 }
@@ -36,27 +49,54 @@ h1, h2 {
   background: var(--surface);
 }
 
-.site-header .wrap {
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   padding-top: 20px;
   padding-bottom: 20px;
-  gap: 12px;
+  padding-left: max(24px, calc((100vw - 760px) / 2));
+  padding-right: max(24px, calc((100vw - 760px) / 2));
+  gap: 16px;
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .brand {
-  font-family: "Lora", serif;
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-family: "Windsor Pro", serif;
+  font-weight: 400;
+  font-size: 1.3rem;
   color: var(--text);
   text-decoration: none;
 }
 
 .tabs {
   display: flex;
-  gap: 24px;
+  gap: 44px;
+}
+
+.kontakt-btn {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.kontakt-btn:hover {
+  background: var(--accent-dark);
+}
+
+.kontakt-btn.active {
+  background: var(--accent-dark);
 }
 
 .tabs a {
@@ -76,49 +116,121 @@ h1, h2 {
   border-bottom-color: var(--accent);
 }
 
-main.wrap {
+.page-wrap {
   padding-top: 56px;
   padding-bottom: 72px;
+  padding-left: max(24px, calc((100vw - 760px) / 2));
+  padding-right: max(24px, calc((100vw - 760px) / 2));
   min-height: 50vh;
 }
 
-.about {
+.hero {
+  position: relative;
   display: flex;
-  gap: 40px;
   align-items: flex-start;
-  flex-wrap: wrap;
+  min-height: 640px;
+  overflow: hidden;
+  background: var(--bg);
 }
 
-.portrait-placeholder {
-  width: 220px;
-  height: 220px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: #d9d6d0;
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding-top: 56px;
+  padding-left: max(24px, calc((100vw - 760px) / 2));
+  padding-right: 60px;
 }
 
-.about-text {
-  flex: 1;
-  min-width: 240px;
+.hero-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 58%;
+  aspect-ratio: 857 / 1200;
+  background: var(--bg);
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 761px) {
+  .hero-image-wide {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 58%;
+    aspect-ratio: 1600 / 1001;
+  }
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--bg) 0%, rgba(250, 247, 242, 0) 34%);
+}
+
+.hero-name {
+  font-family: "Windsor Pro", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.15;
+  color: var(--text);
+  margin: 0;
+}
+
+.hero-body p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 24px 0 18px;
+}
+
+.treatments h1,
+.treatments h2 {
+  color: var(--text);
+}
+
+.treatments p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 0 18px;
 }
 
 .treatment-list {
   list-style: none;
   padding: 0;
-  margin: 24px 0 0;
+  margin: 32px 0 0;
 }
 
 .treatment-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px 24px;
-  margin-bottom: 16px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+}
+
+.treatment-item:first-child {
+  border-top: none;
+  padding-top: 0;
 }
 
 .treatment-item h2 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  margin: 0 0 10px;
+}
+
+.treatment-item p {
   margin: 0;
+  max-width: 640px;
 }
 
 .contact .email {
@@ -148,8 +260,37 @@ main.wrap {
   padding-bottom: 20px;
 }
 
+@media (max-width: 760px) {
+  .header-inner {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .tabs {
+    gap: 20px;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+  }
+  .hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 340px;
+  }
+  .hero-image img {
+    object-position: top center;
+  }
+  .hero-image::after {
+    background: linear-gradient(to bottom, var(--bg) 0%, rgba(250, 247, 242, 0) 22%);
+  }
+  .hero-text {
+    max-width: 100%;
+    padding: 32px 24px 48px;
+  }
+}
+
 @media (max-width: 520px) {
   .tabs { gap: 16px; }
-  .about { flex-direction: column; }
-  .portrait-placeholder { width: 100%; height: 200px; }
 }
