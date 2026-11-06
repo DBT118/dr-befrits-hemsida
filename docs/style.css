@@ -260,11 +260,30 @@ h1, h2 {
 }
 
 @media (max-width: 760px) {
+  /* Two rows on mobile: brand + Kontakt on top, tabs underneath */
   .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand kontakt"
+      "tabs  tabs";
+    align-items: center;
+    row-gap: 14px;
     padding-top: 16px;
     padding-bottom: 16px;
   }
+  .left-group {
+    display: contents;
+  }
+  .brand {
+    grid-area: brand;
+  }
+  .kontakt-btn {
+    grid-area: kontakt;
+    padding: 8px 18px;
+  }
   .tabs {
+    grid-area: tabs;
     gap: 20px;
   }
   .hero {
@@ -292,4 +311,5 @@ h1, h2 {
 
 @media (max-width: 520px) {
   .tabs { gap: 16px; }
+  .brand { font-size: 1.15rem; }
 }
