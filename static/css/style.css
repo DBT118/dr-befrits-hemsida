@@ -300,6 +300,10 @@ h1, h2 {
   .hero-image img {
     object-position: top center;
   }
+  /* Om mig: show the whole portrait (box follows the photo's 857x1200 ratio) */
+  .hero-image:not(.hero-image-wide) {
+    height: auto;
+  }
   .hero-image::after {
     background: linear-gradient(to bottom, var(--bg) 0%, rgba(250, 247, 242, 0) 22%);
   }
