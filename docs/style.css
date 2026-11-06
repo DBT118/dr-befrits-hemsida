@@ -13,6 +13,8 @@
   --accent: #7c9885;
   --accent-dark: #5f7a68;
   --border: #e6e0d6;
+  --content-width: 1200px;
+  --gutter: max(24px, calc((100vw - var(--content-width)) / 2));
 }
 
 * { box-sizing: border-box; }
@@ -39,9 +41,8 @@ h1, h2 {
 }
 
 .wrap {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 24px;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
 .site-header {
@@ -56,8 +57,8 @@ h1, h2 {
   flex-wrap: wrap;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: max(24px, calc((100vw - 760px) / 2));
-  padding-right: max(24px, calc((100vw - 760px) / 2));
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   gap: 16px;
 }
 
@@ -119,8 +120,8 @@ h1, h2 {
 .page-wrap {
   padding-top: 56px;
   padding-bottom: 72px;
-  padding-left: max(24px, calc((100vw - 760px) / 2));
-  padding-right: max(24px, calc((100vw - 760px) / 2));
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   min-height: 50vh;
 }
 
@@ -138,7 +139,7 @@ h1, h2 {
   z-index: 1;
   max-width: 700px;
   padding-top: 56px;
-  padding-left: max(24px, calc((100vw - 760px) / 2));
+  padding-left: var(--gutter);
   padding-right: 60px;
 }
 
@@ -161,6 +162,9 @@ h1, h2 {
 }
 
 @media (min-width: 761px) {
+  :root {
+    --gutter: max(48px, calc((100vw - var(--content-width)) / 2));
+  }
   .hero-image-wide {
     top: 0;
     bottom: 0;
