@@ -100,6 +100,7 @@ h1, h2 {
 }
 
 .tabs a {
+  white-space: nowrap;
   color: var(--muted);
   text-decoration: none;
   font-weight: 600;
@@ -255,15 +256,17 @@ h1, h2 {
 }
 
 @media (max-width: 760px) {
-  /* Two rows on mobile: brand + Kontakt on top, tabs underneath */
+  /* Two rows on mobile: brand on top, all four links on one row below */
   .header-inner {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto;
     grid-template-areas:
-      "brand kontakt"
-      "tabs  tabs";
+      "brand brand"
+      "tabs  kontakt";
+    justify-content: space-between;
     align-items: center;
-    row-gap: 14px;
+    row-gap: 12px;
+    column-gap: 12px;
     padding-top: 16px;
     padding-bottom: 16px;
   }
@@ -275,11 +278,11 @@ h1, h2 {
   }
   .kontakt-btn {
     grid-area: kontakt;
-    padding: 8px 18px;
+    padding: 6px 14px;
   }
   .tabs {
     grid-area: tabs;
-    gap: 20px;
+    gap: 18px;
   }
   .hero {
     flex-direction: column;
@@ -304,7 +307,15 @@ h1, h2 {
   }
 }
 
-@media (max-width: 520px) {
-  .tabs { gap: 16px; }
+@media (max-width: 400px) {
+  .header-inner { font-size: 0.9rem; column-gap: 8px; }
+  .tabs { gap: 12px; }
+  .kontakt-btn { padding: 5px 10px; }
   .brand { font-size: 1.15rem; }
+}
+
+@media (max-width: 350px) {
+  .header-inner { font-size: 0.82rem; column-gap: 6px; }
+  .tabs { gap: 10px; }
+  .kontakt-btn { padding: 5px 8px; }
 }
