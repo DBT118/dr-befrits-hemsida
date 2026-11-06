@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ page_title }} | Dr Befrits & Co</title>
-<link rel="stylesheet" href="style.css?v={{ asset_version }}">
+<link rel="preload" href="/fonts/WindsorProRg.TTF" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/style.css?v={{ asset_version }}">
 </head>
 <body>
 <header class="site-header">
   <div class="header-inner">
     <div class="left-group">
-      <a class="brand" href="index.html">Dr Befrits <span class="amp">&amp;</span> Co</a>
+      <a class="brand" href="/">Dr Befrits <span class="amp">&amp;</span> Co</a>
       <nav class="tabs">
-        <a href="index.html" class="{{ 'active' if active == 'about' else '' }}">Om mig</a>
-        <a href="mottagningen.html" class="{{ 'active' if active == 'mottagningen' else '' }}">Mottagningen</a>
-        <a href="treatments.html" class="{{ 'active' if active == 'treatments' else '' }}">Behandling</a>
+        <a href="/" class="{{ 'active' if active == 'about' else '' }}">Om mig</a>
+        <a href="/mottagningen/" class="{{ 'active' if active == 'mottagningen' else '' }}">Mottagningen</a>
+        <a href="/behandling/" class="{{ 'active' if active == 'treatments' else '' }}">Behandling</a>
       </nav>
     </div>
-    <a href="contact.html" class="kontakt-btn {{ 'active' if active == 'contact' else '' }}">Kontakt</a>
+    <a href="/kontakt/" class="kontakt-btn {{ 'active' if active == 'contact' else '' }}">Kontakt</a>
   </div>
 </header>
 
