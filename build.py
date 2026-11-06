@@ -38,6 +38,8 @@ def build():
         (OUTPUT_DIR / output_name).write_text(html, encoding="utf-8")
 
     shutil.copy(STATIC_DIR / "css" / "style.css", OUTPUT_DIR / "style.css")
+    # Custom domain for GitHub Pages; must survive the docs/ wipe above.
+    shutil.copy(STATIC_DIR / "CNAME", OUTPUT_DIR / "CNAME")
 
     images_src = STATIC_DIR / "images"
     if images_src.exists() and any(images_src.iterdir()):
